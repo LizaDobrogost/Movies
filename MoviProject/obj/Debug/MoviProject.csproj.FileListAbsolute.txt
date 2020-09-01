@@ -77,3 +77,5 @@ D:\C#\MoviProject\MoviProject\obj\Debug\MoviProject.csproj.CoreCompileInputs.cac
 D:\C#\MoviProject\MoviProject\obj\Debug\MoviProject.csproj.CopyComplete
 D:\C#\MoviProject\MoviProject\obj\Debug\MoviProject.dll
 D:\C#\MoviProject\MoviProject\obj\Debug\MoviProject.pdb
+D:\C#\MoviProject\MoviProject\bin\Microsoft.AspNet.Identity.Core.dll
+D:\C#\MoviProject\MoviProject\bin\Microsoft.AspNet.Identity.Core.xml
