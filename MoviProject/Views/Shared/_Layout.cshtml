@@ -4,29 +4,27 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - Mi aplicación ASP.NET</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+    <title>@ViewBag.Title - Web App ASP.NET</title>
+     @Styles.Render("~/Content/css") 
+      @Scripts.Render("~/bundles/modernizr")
 
 </head>
 <body>
-@*
-        Aqui llamo la vista parcial
-    *@
-@*
-        @Html.Partial("_NavBar", Model.Movie)
-    *@
-@Html.Partial("_NavBar")
-<div class="container body-content">
-    @RenderBody()
     <hr />
-    <footer>
-        <p>&copy; @DateTime.Now.Year - Vidly</p>
-    </footer>
-</div>
+    @Html.Partial("_NavBar")
+    <hr />
+    <div class="container body-content">
+        <hr />
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - MovieApp</p>
 
-@Scripts.Render("~/bundles/jquery")
-@Scripts.Render("~/bundles/bootstrap")
-@RenderSection("scripts", required: false)
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
 </body>
-</html>
+        </html>
