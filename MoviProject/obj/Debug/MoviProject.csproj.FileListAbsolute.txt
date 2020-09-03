@@ -254,3 +254,5 @@ D:\C#\MoviProject\MoviProject\bin\ru\System.Spatial.resources.dll
 D:\C#\MoviProject\MoviProject\bin\zh-Hans\System.Spatial.resources.dll
 D:\C#\MoviProject\MoviProject\bin\zh-Hant\System.Spatial.resources.dll
 D:\C#\MoviProject\MoviProject\obj\Debug\MoviProject.csprojAssemblyReference.cache
+D:\C#\MoviProject\MoviProject\obj\Debug\MoviProject.Migrations.PopulateMembershipTypes.resources
+D:\C#\MoviProject\MoviProject\obj\Debug\MoviProject.Migrations.ApplyAnnotationToCustomerName.resources

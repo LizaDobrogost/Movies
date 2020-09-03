@@ -307,6 +307,14 @@
     <Compile Include="Migrations\202009022204361_AddMembershipType.designer.cs">
       <DependentUpon>202009022204361_AddMembershipType.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202009031717189_PopulateMembershipTypes.cs" />
+    <Compile Include="Migrations\202009031717189_PopulateMembershipTypes.designer.cs">
+      <DependentUpon>202009031717189_PopulateMembershipTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009031734357_ApplyAnnotationToCustomerName.cs" />
+    <Compile Include="Migrations\202009031734357_ApplyAnnotationToCustomerName.designer.cs">
+      <DependentUpon>202009031734357_ApplyAnnotationToCustomerName.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -484,6 +492,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202009022204361_AddMembershipType.resx">
       <DependentUpon>202009022204361_AddMembershipType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009031717189_PopulateMembershipTypes.resx">
+      <DependentUpon>202009031717189_PopulateMembershipTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009031734357_ApplyAnnotationToCustomerName.resx">
+      <DependentUpon>202009031734357_ApplyAnnotationToCustomerName.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
