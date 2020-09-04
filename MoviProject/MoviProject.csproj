@@ -315,6 +315,26 @@
     <Compile Include="Migrations\202009031734357_ApplyAnnotationToCustomerName.designer.cs">
       <DependentUpon>202009031734357_ApplyAnnotationToCustomerName.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202009041857357_AddedNameToMaembershiptype.cs" />
+    <Compile Include="Migrations\202009041857357_AddedNameToMaembershiptype.designer.cs">
+      <DependentUpon>202009041857357_AddedNameToMaembershiptype.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009041935035_SetNameOfMembershipTypes.cs" />
+    <Compile Include="Migrations\202009041935035_SetNameOfMembershipTypes.designer.cs">
+      <DependentUpon>202009041935035_SetNameOfMembershipTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009041955595_AddBirthdateToCustomer.cs" />
+    <Compile Include="Migrations\202009041955595_AddBirthdateToCustomer.designer.cs">
+      <DependentUpon>202009041955595_AddBirthdateToCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009042010078_ChangedCustomer.cs" />
+    <Compile Include="Migrations\202009042010078_ChangedCustomer.designer.cs">
+      <DependentUpon>202009042010078_ChangedCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009042011271_AddBirthdate.cs" />
+    <Compile Include="Migrations\202009042011271_AddBirthdate.designer.cs">
+      <DependentUpon>202009042011271_AddBirthdate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -498,6 +518,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202009031734357_ApplyAnnotationToCustomerName.resx">
       <DependentUpon>202009031734357_ApplyAnnotationToCustomerName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009041857357_AddedNameToMaembershiptype.resx">
+      <DependentUpon>202009041857357_AddedNameToMaembershiptype.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009041935035_SetNameOfMembershipTypes.resx">
+      <DependentUpon>202009041935035_SetNameOfMembershipTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009041955595_AddBirthdateToCustomer.resx">
+      <DependentUpon>202009041955595_AddBirthdateToCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009042010078_ChangedCustomer.resx">
+      <DependentUpon>202009042010078_ChangedCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009042011271_AddBirthdate.resx">
+      <DependentUpon>202009042011271_AddBirthdate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
