@@ -261,3 +261,7 @@ D:\C#\MoviProject\MoviProject\obj\Debug\MoviProject.Migrations.SetNameOfMembersh
 D:\C#\MoviProject\MoviProject\obj\Debug\MoviProject.Migrations.AddBirthdateToCustomer.resources
 D:\C#\MoviProject\MoviProject\obj\Debug\MoviProject.Migrations.ChangedCustomer.resources
 D:\C#\MoviProject\MoviProject\obj\Debug\MoviProject.Migrations.AddBirthdate.resources
+D:\C#\MoviProject\MoviProject\obj\Debug\MoviProject.Migrations.Genre.resources
+D:\C#\MoviProject\MoviProject\obj\Debug\MoviProject.Migrations.AddedMovieGenres.resources
+D:\C#\MoviProject\MoviProject\obj\Debug\MoviProject.Migrations.AddedMovie.resources
+D:\C#\MoviProject\MoviProject\obj\Debug\MoviProject.Migrations.Addedmoremovies.resources

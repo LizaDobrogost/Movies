@@ -335,8 +335,25 @@
     <Compile Include="Migrations\202009042011271_AddBirthdate.designer.cs">
       <DependentUpon>202009042011271_AddBirthdate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202009051114355_Genre.cs" />
+    <Compile Include="Migrations\202009051114355_Genre.designer.cs">
+      <DependentUpon>202009051114355_Genre.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009051128209_AddedMovieGenres.cs" />
+    <Compile Include="Migrations\202009051128209_AddedMovieGenres.designer.cs">
+      <DependentUpon>202009051128209_AddedMovieGenres.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009051357521_AddedMovie.cs" />
+    <Compile Include="Migrations\202009051357521_AddedMovie.designer.cs">
+      <DependentUpon>202009051357521_AddedMovie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009052206443_Addedmoremovies.cs" />
+    <Compile Include="Migrations\202009052206443_Addedmoremovies.designer.cs">
+      <DependentUpon>202009052206443_Addedmoremovies.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\MembershipType.cs" />
     <Compile Include="Models\Movie.cs" />
@@ -491,6 +508,8 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Views\Movies\Details.cshtml" />
+    <Content Include="Views\Customer\New.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -533,6 +552,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202009042011271_AddBirthdate.resx">
       <DependentUpon>202009042011271_AddBirthdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009051114355_Genre.resx">
+      <DependentUpon>202009051114355_Genre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009051128209_AddedMovieGenres.resx">
+      <DependentUpon>202009051128209_AddedMovieGenres.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009051357521_AddedMovie.resx">
+      <DependentUpon>202009051357521_AddedMovie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009052206443_Addedmoremovies.resx">
+      <DependentUpon>202009052206443_Addedmoremovies.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
