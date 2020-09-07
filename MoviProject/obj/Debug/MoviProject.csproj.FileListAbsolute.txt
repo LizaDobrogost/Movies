@@ -265,3 +265,4 @@ D:\C#\MoviProject\MoviProject\obj\Debug\MoviProject.Migrations.Genre.resources
 D:\C#\MoviProject\MoviProject\obj\Debug\MoviProject.Migrations.AddedMovieGenres.resources
 D:\C#\MoviProject\MoviProject\obj\Debug\MoviProject.Migrations.AddedMovie.resources
 D:\C#\MoviProject\MoviProject\obj\Debug\MoviProject.Migrations.Addedmoremovies.resources
+D:\C#\MoviProject\MoviProject\obj\Debug\MoviProject.Migrations.CustomerModelChanged.resources

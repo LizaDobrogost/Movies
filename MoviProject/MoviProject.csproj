@@ -351,6 +351,10 @@
     <Compile Include="Migrations\202009052206443_Addedmoremovies.designer.cs">
       <DependentUpon>202009052206443_Addedmoremovies.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202009071006581_CustomerModelChanged.cs" />
+    <Compile Include="Migrations\202009071006581_CustomerModelChanged.designer.cs">
+      <DependentUpon>202009071006581_CustomerModelChanged.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Genre.cs" />
@@ -360,6 +364,7 @@
     <Compile Include="Models\MoviesCustomer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\CustomerFormViewModel.cs" />
+    <Compile Include="ViewModels\MovieFormViewModel.cs" />
     <Compile Include="ViewModels\RandomMovieViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -511,9 +516,11 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Movies\Details.cshtml" />
     <Content Include="Views\Customer\CustomerForm.cshtml" />
+    <Content Include="Views\Movies\MovieForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\MovieFormViewModel\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -565,6 +572,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202009052206443_Addedmoremovies.resx">
       <DependentUpon>202009052206443_Addedmoremovies.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009071006581_CustomerModelChanged.resx">
+      <DependentUpon>202009071006581_CustomerModelChanged.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
