@@ -168,10 +168,6 @@ D:\C#\MoviProject\MoviProject\bin\Microsoft.Data.Edm.dll
 D:\C#\MoviProject\MoviProject\bin\Microsoft.Data.OData.dll
 D:\C#\MoviProject\MoviProject\bin\Microsoft.OData.Core.dll
 D:\C#\MoviProject\MoviProject\bin\Microsoft.OData.Edm.dll
-D:\C#\MoviProject\MoviProject\bin\Microsoft.Owin.dll
-D:\C#\MoviProject\MoviProject\bin\Microsoft.Owin.Security.Cookies.dll
-D:\C#\MoviProject\MoviProject\bin\Microsoft.Owin.Security.dll
-D:\C#\MoviProject\MoviProject\bin\Microsoft.Owin.Security.OAuth.dll
 D:\C#\MoviProject\MoviProject\bin\Microsoft.Spatial.dll
 D:\C#\MoviProject\MoviProject\bin\Owin.dll
 D:\C#\MoviProject\MoviProject\bin\RazorGenerator.Mvc.dll
@@ -188,10 +184,6 @@ D:\C#\MoviProject\MoviProject\bin\Microsoft.Data.Edm.xml
 D:\C#\MoviProject\MoviProject\bin\Microsoft.Data.OData.xml
 D:\C#\MoviProject\MoviProject\bin\Microsoft.OData.Core.xml
 D:\C#\MoviProject\MoviProject\bin\Microsoft.OData.Edm.xml
-D:\C#\MoviProject\MoviProject\bin\Microsoft.Owin.xml
-D:\C#\MoviProject\MoviProject\bin\Microsoft.Owin.Security.xml
-D:\C#\MoviProject\MoviProject\bin\Microsoft.Owin.Security.Cookies.xml
-D:\C#\MoviProject\MoviProject\bin\Microsoft.Owin.Security.OAuth.xml
 D:\C#\MoviProject\MoviProject\bin\Microsoft.Spatial.xml
 D:\C#\MoviProject\MoviProject\bin\System.Net.Http.Formatting.xml
 D:\C#\MoviProject\MoviProject\bin\System.Spatial.xml
@@ -253,7 +245,6 @@ D:\C#\MoviProject\MoviProject\bin\ko\System.Spatial.resources.dll
 D:\C#\MoviProject\MoviProject\bin\ru\System.Spatial.resources.dll
 D:\C#\MoviProject\MoviProject\bin\zh-Hans\System.Spatial.resources.dll
 D:\C#\MoviProject\MoviProject\bin\zh-Hant\System.Spatial.resources.dll
-D:\C#\MoviProject\MoviProject\obj\Debug\MoviProject.csprojAssemblyReference.cache
 D:\C#\MoviProject\MoviProject\obj\Debug\MoviProject.Migrations.PopulateMembershipTypes.resources
 D:\C#\MoviProject\MoviProject\obj\Debug\MoviProject.Migrations.ApplyAnnotationToCustomerName.resources
 D:\C#\MoviProject\MoviProject\obj\Debug\MoviProject.Migrations.AddedNameToMaembershiptype.resources
@@ -266,3 +257,4 @@ D:\C#\MoviProject\MoviProject\obj\Debug\MoviProject.Migrations.AddedMovieGenres.
 D:\C#\MoviProject\MoviProject\obj\Debug\MoviProject.Migrations.AddedMovie.resources
 D:\C#\MoviProject\MoviProject\obj\Debug\MoviProject.Migrations.Addedmoremovies.resources
 D:\C#\MoviProject\MoviProject\obj\Debug\MoviProject.Migrations.CustomerModelChanged.resources
+D:\C#\MoviProject\MoviProject\obj\Debug\MoviProject.csprojAssemblyReference.cache

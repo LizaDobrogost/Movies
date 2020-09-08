@@ -16,7 +16,7 @@ namespace MoviProject.Controllers
 
         public CustomerController()
         {
-            _context=new ApplicationDbContext();
+            _context = new ApplicationDbContext();
         }
 
         protected override void Dispose(bool disposing)
@@ -31,12 +31,22 @@ namespace MoviProject.Controllers
             {
                 MembershipTypes = membershiptypes
             };
-            return View("CustomerForm",viewModel);
+            return View("CustomerForm", viewModel);
         }
+
         [HttpPost]
         public ActionResult Save(Customer customer)
         {
-            if(customer.Id==0)
+            if (!ModelState.IsValid)
+            {
+                var viewModel=new CustomerFormViewModel
+                {
+                    Customer = customer,
+                    MembershipTypes = _context.MembershipTypes.ToList()
+                };
+                return View("CustomerForm",viewModel);
+            }
+            if (customer.Id == 0)
                 _context.Customers.Add(customer);
             else
             {
@@ -46,14 +56,15 @@ namespace MoviProject.Controllers
                 customerInDb.Birthdate = customer.Birthdate;
                 customerInDb.MembershipTypeId = customer.MembershipTypeId;
                 customerInDb.IsSubscribedToNewsletter = customer.IsSubscribedToNewsletter;
-
             }
+
             _context.SaveChanges();
-            return RedirectToAction("Index","Customer");
+            return RedirectToAction("Index", "Customer");
         }
+
         public ViewResult Index()
         {
-            var customers = _context.Customers.Include(c=>c.MembershipType).ToList();
+            var customers = _context.Customers.Include(c => c.MembershipType).ToList();
             return View(customers);
         }
 
@@ -72,13 +83,12 @@ namespace MoviProject.Controllers
             var customer = _context.Customers.SingleOrDefault(c => c.Id == id);
             if (customer == null)
                 return HttpNotFound();
-            var viewModel=new CustomerFormViewModel
+            var viewModel = new CustomerFormViewModel
             {
                 Customer = customer,
                 MembershipTypes = _context.MembershipTypes.ToList()
             };
-            return View("CustomerForm",viewModel);
+            return View("CustomerForm", viewModel);
         }
-        
     }
 }
