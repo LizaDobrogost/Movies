@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Data.Entity;
 using System.Linq;
@@ -29,6 +30,7 @@ namespace MoviProject.Models
         public DateTime ReleaseDate { get; set; }
 
         [Display(Name = "Number in Stock")]
+        [Range(1, 100)]
         public byte NumberInStock { get; set; }
     }
 }
