@@ -1,0 +1,96 @@
+﻿@model AmazeOne.Models.GIS.CountryDetailsModel
+@{
+    ViewBag.Title = "Country Details Page";
+}
+
+<hgroup class="title">
+    <h1>@ViewBag.Title</h1>
+</hgroup>
+
+<fieldset>
+    <legend>Country</legend>
+
+@*    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CountryId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CountryId)
+    </div>*@
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CountryName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CountryName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Client)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Client)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.AssociatedJiraProjectKey)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.AssociatedJiraProjectKey)
+    </div>
+
+@*    <h3>Unilever</h3>
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.JobAndPhaseForSupportHours)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.JobAndPhaseForSupportHours)
+    </div>
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.JobAndPhaseForBrandsProject)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.JobAndPhaseForBrandsProject)
+    </div>
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.JobAndPhaseForCareersProject)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.JobAndPhaseForCareersProject)
+    </div>
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.JobAndPhaseForMediaProject)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.JobAndPhaseForMediaProject)
+    </div>
+
+    <h3>Lexus</h3>
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.JobAndPhaseForLocalAssetUpload)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.JobAndPhaseForLocalAssetUpload)
+    </div>
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.JobAndPhaseForLocalTagging)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.JobAndPhaseForLocalTagging)
+    </div>
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.JobAndPhaseForSelfSupportGuidance)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.JobAndPhaseForSelfSupportGuidance)
+    </div>
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.JobAndPhaseForTechnicalSupport)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.JobAndPhaseForTechnicalSupport)
+    </div>*@
+</fieldset>
+
+<div>
+    @Html.ActionLink("Back to List", "Index", new { cl = Model.ClientId.ToString() })
+</div>

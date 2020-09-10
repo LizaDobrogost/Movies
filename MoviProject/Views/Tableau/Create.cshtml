@@ -1,0 +1,58 @@
+﻿@model AmazeOne.Models.TableauDashboardViewModel
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.ValidationSummary(true)
+    @Html.AntiForgeryToken()
+
+    <fieldset>
+        <legend>TableauDashboard</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.DisplayName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.DisplayName)
+            @Html.ValidationMessageFor(model => model.DisplayName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Workbook)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Workbook)
+            @Html.ValidationMessageFor(model => model.Workbook)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.View)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.View)
+            @Html.ValidationMessageFor(model => model.View)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(m => m.Roles)
+        </div>
+        <div class="editor-field">
+            @Html.ListBoxFor(m => m.SelectedRoles, Model.Roles)
+        </div>
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

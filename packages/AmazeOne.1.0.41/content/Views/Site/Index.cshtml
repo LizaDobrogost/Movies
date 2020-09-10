@@ -1,0 +1,182 @@
+﻿@model AmazeOne.Models.GIS.SiteIndexModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Site Index Page";
+}
+<hgroup class="title">
+    <h1>@ViewBag.Title</h1>
+</hgroup>
+
+@using (Html.BeginForm("Index", "Site", FormMethod.Post, new { @id = "selector" })) {
+        
+    Html.RenderPartial("~/Views/Shared/_SelectClient.cshtml", Model.Clients);
+    Html.RenderPartial("~/Views/Shared/_SelectCountry.cshtml", Model.Countries);
+}
+
+
+<p>
+    @Html.ActionLink("Create New Site", "Create", new { cl = Model.SelectedClientId, co = Model.SelectedCountryId }, new { @id = "hypCreate" })
+</p>
+
+<table class="gis">
+    <thead>
+        <tr>
+            <th>Site Name</th>
+            <th>Site Url</th>
+            <th>Country</th>
+            <th>Band</th>
+            <th>Cluster</th>
+            <th>Language</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody id="sitedata">
+
+
+
+
+@foreach (var sm in Model.Sites)
+{
+        <tr>
+            <td><strong>@Html.DisplayFor(modelItem => sm.SiteName)</strong></td>
+            <td>@Html.DisplayFor(modelItem => sm.SiteUrl)</td>
+            <td>@Html.DisplayFor(modelItem => sm.Country)</td>
+            <td>@Html.DisplayFor(modelItem => sm.Band)</td>
+            <td>@Html.DisplayFor(modelItem => sm.Cluster)</td>
+            <td>@Html.DisplayFor(modelItem => sm.Language)</td>
+            @if (Roles.IsUserInRole("Administrator"))
+            { 
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = sm.SiteId }) |
+                    @Html.ActionLink("Details", "Details", new { id = sm.SiteId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = sm.SiteId })
+                </td>
+            } else {
+                <td></td>
+            }
+        </tr>
+
+}
+    </tbody>
+</table>
+
+<p id="total">
+    @Model.Sites.Count.ToString() Sites.
+</p>
+
+@section Scripts {
+<script type="text/javascript">
+    function populateCountryAndData(data)
+    {
+        //console.log(data);
+        $("#ddlCountry").empty();
+        $.each(data.Countries, function(i, item) {
+            if (item.Selected == false)
+                $("#ddlCountry").append("<option value='" + item.Value + "'>" + item.Text + "</option>");
+            else
+                $("#ddlCountry").append("<option selected='selected' value='" + item.Value + "'>" + item.Text + "</option>");
+        });
+
+        $("#sitedata").empty();
+        var count = 0;
+        $.each(data.Sites, function(i, item) {
+            var trElement = $("<tr>");
+
+            // data 
+            trElement.append("<td><strong>" + item.SiteName + "</strong></td>");
+            trElement.append("<td>" + item.SiteUrl + "</td>");
+            trElement.append("<td>" + item.Country + "</td>");
+            trElement.append("<td>" + item.Band + "</td>");
+            trElement.append("<td>" + item.Cluster + "</td>");
+            trElement.append("<td>" + item.Language + "</td>");
+            
+            // action
+            trElement.append("<td><a href='/Site/Edit/" + item.SiteId + "'>Edit</a> | <a href='/Site/Details/" + item.SiteId + "'>Details</a> | <a href='/Site/Delete/" + item.SiteId + "'>Delete</a></td>");
+            trElement.append("</tr>");
+            $("#sitedata").append(trElement);
+
+            count++;
+        });
+
+        $("#total").empty().text(count + " Sites.");
+    }
+
+    function populateData(data)
+    {
+        $("#sitedata").empty();
+        var count = 0;
+        $.each(data.Sites, function(i, item) {
+            var trElement = $("<tr>");
+
+            // data 
+            trElement.append("<td><strong>" + item.SiteName + "</strong></td>");
+            trElement.append("<td>" + item.SiteUrl + "</td>");
+            trElement.append("<td>" + item.Country + "</td>");
+            trElement.append("<td>" + item.Band + "</td>");
+            trElement.append("<td>" + item.Cluster + "</td>");
+            trElement.append("<td>" + item.Language + "</td>");
+
+            // action
+            trElement.append("<td><a href='/Site/Edit/" + item.SiteId + "'>Edit</a> | <a href='/Site/Details/" + item.SiteId + "'>Details</a> | <a href='/Site/Delete/" + item.SiteId + "'>Delete</a></td>");
+            trElement.append("</tr>");
+            $("#sitedata").append(trElement);
+
+            count++;
+        });
+
+        $("#total").empty().text(count + " Sites.");
+    }
+
+    $(function () {
+        $("#ddlClient").change(function () {
+            var selectedClient = $(this).val();
+
+            // change create context
+            $("#hypCreate").attr("href", "/Site/Create?cl=" + selectedClient + "&co=00000000-0000-0000-0000-000000000000");
+
+            // request 
+            $.ajax({
+                cache: false,
+                type: "post",
+                url: "@(Url.Action("Index", "Site"))",
+                data: { "seletedClientId": selectedClient, "selectedCountryId": "00000000-0000-0000-0000-000000000000"},
+                
+                success: function (data) {
+                    populateCountryAndData(data);
+                },
+                error:function (xhr, ajaxOptions, thrownError){
+                    alert("Error");
+                },
+                complete: function() {
+                    
+                } 
+            });
+        });
+
+        $("#ddlCountry").change(function () {
+            var selectedClient = $("#ddlClient").val();
+            var selectedCountry = $(this).val();
+
+            // change create context
+            $("#hypCreate").attr("href", "/Site/Create?cl=" + selectedClient + "&co=" + selectedCountry);
+
+            // request
+            $.ajax({
+                cache: false,
+                type: "post",
+                url: "@(Url.Action("Index", "Site"))",
+                data: { "seletedClientId": selectedClient, "selectedCountryId": selectedCountry},
+                success: function (data) {
+                    populateData(data);
+                },
+                error:function (xhr, ajaxOptions, thrownError){
+                    alert("Error");
+                },
+                complete: function() {
+                    
+                } 
+            });
+        });
+    });
+</script>
+}

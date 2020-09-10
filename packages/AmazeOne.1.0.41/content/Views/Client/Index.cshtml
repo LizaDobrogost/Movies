@@ -1,0 +1,54 @@
+﻿@model AmazeOne.Models.GIS.ClientIndexModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Client Index Page";
+}
+<hgroup class="title">
+    <h1>@ViewBag.Title</h1>
+</hgroup>
+
+<p>
+    @Html.ActionLink("Create New Client", "Create")
+</p>
+<table class="gis">
+    <thead id="siteheader">
+        <tr>
+            <th>
+                Client Name
+            </th>
+            <th>
+                Amount Of Countries
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody id="sitedata">
+        @foreach (var cl in Model.Clients)
+        {
+            <tr>
+                <td>
+                    <strong>@Html.DisplayFor(modelItem => cl.ClientName)</strong>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => cl.CountiesCount)
+                </td>
+                @if (Roles.IsUserInRole("Administrator"))
+                { 
+                    <td>
+                        <strong>
+                            @Html.ActionLink("Edit", "Edit", new { id = cl.ClientId }) |
+                            @Html.ActionLink("Details", "Details", new { id = cl.ClientId }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = cl.ClientId })
+                        </strong>
+                    </td>
+                }
+                else
+                {
+                    <td></td>
+                }
+            </tr>
+        }
+    </tbody>
+</table>
+
+

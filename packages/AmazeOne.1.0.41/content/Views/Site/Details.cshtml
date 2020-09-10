@@ -1,0 +1,65 @@
+﻿@model AmazeOne.Models.GIS.SiteDetailsModel
+@{
+    ViewBag.Title = "Site Details Page";
+}
+
+<hgroup class="title">
+    <h1>@ViewBag.Title</h1>
+</hgroup>
+
+<fieldset>
+    <legend>Site</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SiteId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SiteId)
+    </div>
+
+    <div class="display-field">
+        @Html.DisplayNameFor(model => model.SiteName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SiteName)
+    </div>
+
+    <div class="display-field">
+        @Html.DisplayNameFor(model => model.SiteUrl)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SiteUrl)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Country)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Country)
+    </div>
+
+    <div class="display-field">
+        @Html.DisplayNameFor(model => model.Band)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Band)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Cluster)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Cluster)
+    </div>
+
+    <div class="display-field">
+        @Html.DisplayNameFor(model => model.Language)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Language)
+    </div>
+</fieldset>
+
+<div>
+    @Html.ActionLink("Back to List", "Index", new { cl = Model.ClientId.ToString(), co = Model.CountryId.ToString() })
+</div>

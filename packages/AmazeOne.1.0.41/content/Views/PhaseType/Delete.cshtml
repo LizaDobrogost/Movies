@@ -1,0 +1,39 @@
+﻿@model AmazeOne.Models.GIS.PhaseTypeDetailsModel
+@{
+    ViewBag.Title = "Delete Phase Type";
+}
+
+<hgroup class="title">
+    <h1>@ViewBag.Title</h1>
+</hgroup>
+
+<h2>Are you sure you want to delete this?</h2>
+<fieldset>
+    <legend>Phase Type</legend>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(m => m.PhaseTypeDescription)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(m => m.PhaseTypeDescription)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(m => m.IsSupportPhaseType)
+    </div>
+    <div class="display-field">
+        @((bool)Model.IsSupportPhaseType ? "TRUE" : "FALSE")
+    </div>
+
+</fieldset>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+
+    @Html.HiddenFor(model => model.PhaseTypeId)
+    @Html.HiddenFor(model => model.ClientId)
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to Client", "Edit", "Client", new { id = Model.ClientId }, new object { })
+    </p>
+}

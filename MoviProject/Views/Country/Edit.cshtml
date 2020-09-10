@@ -1,0 +1,160 @@
+﻿@model AmazeOne.Models.GIS.CountryEditModel
+@{
+    ViewBag.Title = "Country Edit Page";
+}
+
+<hgroup class="title">
+    <h1>@ViewBag.Title</h1>
+</hgroup>
+
+@using (Html.BeginForm())
+{
+    
+    @Html.ValidationSummary(true)
+    @Html.AntiForgeryToken()
+
+    <fieldset>
+        <legend>Site</legend>
+        @Html.HiddenFor(model => model.CreatedDate)
+        @Html.HiddenFor(model => model.CountryId)
+        @Html.HiddenFor(model => model.ClientId)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CountryName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.CountryName)
+            @Html.ValidationMessageFor(model => model.CountryName)
+        </div>
+
+        @*<div class="editor-label">@Html.LabelFor(s => s.ClientId)</div>
+        <div class="editor-field">@Html.DropDownListFor(s => s.ClientId, Model.Clients)</div>*@
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.AssociatedJiraProjectKey)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.AssociatedJiraProjectKey)
+            @Html.ValidationMessageFor(model => model.AssociatedJiraProjectKey)
+        </div>
+
+        @*<!-- UNILEVER -->
+        <h3>Unilever Jobs and Phases</h3>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.JobAndPhaseForSupportHours)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.JobAndPhaseForSupportHours)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.JobAndPhaseForBrandsProject)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.JobAndPhaseForBrandsProject)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.JobAndPhaseForCareersProject)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.JobAndPhaseForCareersProject)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.JobAndPhaseForMediaProject)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.JobAndPhaseForMediaProject)
+        </div>
+
+        <!-- LEXUS -->
+        <h3>Lexus Jobs and Phases</h3>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.JobAndPhaseForLocalAssetUpload)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.JobAndPhaseForLocalAssetUpload)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.JobAndPhaseForLocalTagging)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.JobAndPhaseForLocalTagging)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.JobAndPhaseForSelfSupportGuidance)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.JobAndPhaseForSelfSupportGuidance)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.JobAndPhaseForTechnicalSupport)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.JobAndPhaseForTechnicalSupport)
+        </div>*@
+
+        <p>
+            <input type="submit" value="Save Country Details" />
+        </p>
+    </fieldset>
+}
+
+<h2>Country's Job And Phases</h2>
+<p>
+    @Html.ActionLink("Create New Job And Phase", "Create", "JobAndPhase", new { co = Model.CountryId }, new object { })
+</p>
+
+@if (Model.JobAndPhases.Any())
+{
+    <table class="gis">
+        <thead id="siteheader">
+            <tr>
+                <th>
+                    Phase Type Name
+                </th>
+                <th>
+                    Synergist Job And Phase Number
+                </th>
+                <th>
+                </th>
+            </tr>
+        </thead>
+        <tbody id="sitedata">
+            @foreach (var cm in Model.JobAndPhases)
+            {
+                <tr>
+                    <td>
+                        <strong>@Html.DisplayFor(modelItem => cm.PhaseTypeName)</strong>
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => cm.JobAndPhaseNumber)
+                    </td>
+                    @if (Roles.IsUserInRole("Administrator"))
+                    {
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", "JobAndPhase", new { id = cm.JobAndPhaseId }, new object { }) |
+                            @Html.ActionLink("Delete", "Delete", "JobAndPhase", new { id = cm.JobAndPhaseId }, new object { })
+                        </td>
+                    }
+                    else
+                    {
+                        <td></td>
+                    }
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No Job and Phases currently available</p>
+}
+<br />
+
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,39 @@
+﻿@model AmazeOne.Models.GIS.JobAndPhaseDetailsModel
+@{
+    ViewBag.Title = "Delete Job & Phase";
+}
+
+<hgroup class="title">
+    <h1>@ViewBag.Title</h1>
+</hgroup>
+
+<h2>Are you sure you want to delete this?</h2>
+<fieldset>
+    <legend>Job and Phase</legend>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.PhaseTypeName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PhaseTypeName)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.JobAndPhaseNumber)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.JobAndPhaseNumber)
+    </div>
+
+</fieldset>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+
+    @Html.HiddenFor(model => model.JobAndPhaseId)
+    @Html.HiddenFor(model => model.CountryId)
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to Country", "Edit", "Country", new { id = Model.CountryId }, new object { })
+    </p>
+}

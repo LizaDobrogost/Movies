@@ -1,0 +1,29 @@
+﻿@model AmazeOne.Models.RoleDetailsViewModel
+@{
+    ViewBag.Title = "Details";
+}
+<h2>Details</h2>
+<fieldset>
+    <legend>TableauDashboard</legend>
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Role)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Role)
+    </div>
+    <br />
+    <section>
+        <div class="display-label">
+            @Html.DisplayNameFor(model => model.Users)
+        </div>
+        <div class="display-field">
+            @foreach (var user in Model.Users)
+            { 
+                @user
+            }
+        </div>
+    </section>
+</fieldset>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>

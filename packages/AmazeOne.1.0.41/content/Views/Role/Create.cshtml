@@ -1,0 +1,39 @@
+﻿@model AmazeOne.Models.RoleCreateViewModel
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<hgroup>
+    <h2>Create</h2>
+</hgroup>
+
+@using (@Html.BeginForm()) 
+{
+    @Html.ValidationSummary(true)
+    @Html.AntiForgeryToken()
+
+    <fieldset>
+        <legend>Role</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Role)
+        </div>
+        <div class="editor-label">
+            @Html.TextBoxFor(model => model.Role)
+            @Html.ValidationMessageFor(model => model.Role)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

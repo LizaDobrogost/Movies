@@ -1,0 +1,202 @@
+﻿@using System.Configuration;
+@model AmazeOne.Models.GIS.CountryIndexModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Country Index Page";
+}
+<hgroup class="title">
+    <h1>@ViewBag.Title</h1>
+</hgroup>
+@using (Html.BeginForm("Index", "Country", FormMethod.Post, new { @id = "selector" }))
+{
+
+    Html.RenderPartial("~/Views/Shared/_SelectClient.cshtml", Model.Clients);
+}
+<p>
+    @Html.ActionLink("Create New Country", "Create")
+</p>
+<table class="gis">
+    <thead id="siteheader">
+        <tr>
+            <th>
+                Country Name
+            </th>
+            <th>
+                Associated JIRA Project
+            </th>
+            @*@if (string.Equals(Model.SelectedClientId.ToString(), ConfigurationManager.AppSettings["UnileverClientId"], StringComparison.InvariantCultureIgnoreCase))
+            {
+                <th>
+                    Job/Phase For Support Hours
+                </th>
+                <th>
+                    Job/Phase For Brands Project
+                </th>
+                <th>
+                    Job/Phase For Careers Project
+                </th>
+                <th>
+                    Job/Phase For Media Project
+                </th>
+            }
+            @if (string.Equals(Model.SelectedClientId.ToString(), ConfigurationManager.AppSettings["LexusClientId"], StringComparison.InvariantCultureIgnoreCase))
+            {
+                <th>
+                    Job/Phase For Local Asset Upload
+                </th>
+                <th>
+                    Job/Phase For Local Tagging
+                </th>
+                <th>
+                    Job/Phase For Self Support
+                </th>
+                <th>
+                    Job/Phase For Technical Support
+                </th>
+            }*@
+            <th>
+            </th>
+        </tr>
+    </thead>
+    <tbody id="sitedata">
+        @foreach (var cm in Model.Countries)
+        {
+            <tr>
+                <td>
+                    <strong>@Html.DisplayFor(modelItem => cm.CountryName)</strong>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => cm.AssociatedJiraProjectKey)
+                </td>
+                @*@if (string.Equals(Model.SelectedClientId.ToString(), ConfigurationManager.AppSettings["UnileverClientId"], StringComparison.InvariantCultureIgnoreCase))
+                {
+                    <td>@Html.DisplayFor(modelItem => cm.JobAndPhaseForSupportHours)
+                    </td>
+                    <td>@Html.DisplayFor(modelItem => cm.JobAndPhaseForBrandsProject)
+                    </td>
+                    <td>@Html.DisplayFor(modelItem => cm.JobAndPhaseForCareersProject)
+                    </td>
+                    <td>@Html.DisplayFor(modelItem => cm.JobAndPhaseForMediaProject)
+                    </td>
+                }
+                @if (string.Equals(Model.SelectedClientId.ToString(), ConfigurationManager.AppSettings["LexusClientId"], StringComparison.InvariantCultureIgnoreCase))
+                {
+                    <td>@Html.DisplayFor(modelItem => cm.JobAndPhaseForLocalAssetUpload)
+                    </td>
+                    <td>@Html.DisplayFor(modelItem => cm.JobAndPhaseForLocalTagging)
+                    </td>
+                    <td>@Html.DisplayFor(modelItem => cm.JobAndPhaseForSelfSupportGuidance)
+                    </td>
+                    <td>@Html.DisplayFor(modelItem => cm.JobAndPhaseForTechnicalSupport)
+                    </td>
+                }*@
+                @if (Roles.IsUserInRole("Administrator"))
+                { 
+                    <td>
+                        <strong>
+                            @Html.ActionLink("Edit", "Edit", new { id = cm.CountryId }) |
+                            @Html.ActionLink("Details", "Details", new { id = cm.CountryId }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = cm.CountryId })
+                        </strong>
+                    </td>
+                }
+                else
+                {
+                    <td>
+                    </td>
+                }
+            </tr>
+
+        }
+    </tbody>
+</table>
+
+<p id="total">
+    @Model.Countries.Count.ToString() Countries.
+</p>
+
+@section Scripts {
+    <script type="text/javascript">
+    function populateCountryData(data, selectedClient)
+    {
+        $("#siteheader").empty();
+        $("#sitedata").empty();
+
+        // header
+        var trHeaderElement = $("<tr>");
+        trHeaderElement.append("<th>Country Name</th>");
+        trHeaderElement.append("<th>Associated JIRA Project Key</th>");
+
+//        if (selectedClient == "@ConfigurationManager.AppSettings["UnileverClientId"].ToLower()") {
+//            trHeaderElement.append("<th>Job/Phase For Support Hours</th>");
+//            trHeaderElement.append("<th>Job/Phase For Brands Project</th>");
+//            trHeaderElement.append("<th>Job/Phase For Careers Project</th>");
+//            trHeaderElement.append("<th>Job/Phase For Media Project</th>");
+//        }
+//        if (selectedClient == "@ConfigurationManager.AppSettings["LexusClientId"].ToLower()") {
+//            trHeaderElement.append("<th>Job/Phase For Local Asset Upload</th>");
+//            trHeaderElement.append("<th>Job/Phase For Local Tagging</th>");
+//            trHeaderElement.append("<th>Job/Phase For Self Support</th>");
+//            trHeaderElement.append("<th>Job/Phase For Technical Support</th>");
+//        }
+        trHeaderElement.append("<th></h>");
+        $("#siteheader").append(trHeaderElement);
+
+         // data
+         var count = 0;
+         $.each(data.Countries, function(i, item) {
+            var trElement = $("<tr>");
+
+            trElement.append("<td><strong>" + item.CountryName + "</strong></td>");
+            trElement.append("<td>" + (item.AssociatedJiraProjectKey == null ? "" : item.AssociatedJiraProjectKey) + "</td>");
+
+//            if (selectedClient == "@ConfigurationManager.AppSettings["UnileverClientId"].ToLower()") {
+//                trElement.append("<td>" + (item.JobAndPhaseForSupportHours == null ? "" : item.JobAndPhaseForSupportHours) + "</td>");
+//                trElement.append("<td>" + (item.JobAndPhaseForBrandsProject == null ? "" : item.JobAndPhaseForBrandsProject) + "</td>");
+//                trElement.append("<td>" + (item.JobAndPhaseForCareersProject == null ? "" : item.JobAndPhaseForCareersProject) + "</td>");
+//                trElement.append("<td>" + (item.JobAndPhaseForMediaProject == null ? "" : item.JobAndPhaseForMediaProject) + "</td>");
+//            }
+
+//            if (selectedClient == "@ConfigurationManager.AppSettings["LexusClientId"].ToLower()") {
+//                trElement.append("<td>" + (item.JobAndPhaseForLocalAssetUpload == null ? "" : item.JobAndPhaseForLocalAssetUpload) + "</td>");
+//                trElement.append("<td>" + (item.JobAndPhaseForLocalTagging == null ? "" : item.JobAndPhaseForLocalTagging) + "</td>");
+//                trElement.append("<td>" + (item.JobAndPhaseForSelfSupportGuidance == null ? "" : item.JobAndPhaseForSelfSupportGuidance) + "</td>");
+//                trElement.append("<td>" + (item.JobAndPhaseForTechnicalSupport == null ? "" : item.JobAndPhaseForTechnicalSupport) + "</td>");
+//            }
+
+            // action
+            trElement.append("<td><a href='/Country/Edit/" + item.CountryId + "'>Edit</a> | <a href='/Country/Details/" + item.CountryId + "'>Details</a> | <a href='/Country/Delete/" + item.CountryId + "'>Delete</a></td>");
+            $("#sitedata").append(trElement);
+
+            count++;
+        });
+
+        $("#total").empty().text(count + " Countries.");
+    }
+
+
+
+    $(function () {
+        $("#ddlClient").change(function () {
+            var selectedClient = $(this).val();
+
+            $.ajax({
+                cache: false,
+                type: "post",
+                url: "@(Url.Action("Index", "Country"))",
+                data: { "seletedClientId": selectedClient },
+                
+                success: function (data) {
+                    populateCountryData(data, selectedClient);
+                },
+                error:function (xhr, ajaxOptions, thrownError){
+                    alert("Error");
+                },
+                complete: function() {
+                    
+                } 
+            });
+        });
+    });
+    </script>
+}

@@ -1,0 +1,54 @@
+﻿@using AmazeOne.Domain.Configuration
+
+@model AmazeOne.Models.TableauView
+
+@{
+    ViewBag.Title = "Dashboard";
+    
+}
+
+<hgroup>
+    <h2>View</h2>
+</hgroup>
+
+<div id="viz">
+</div>
+
+
+@section Scripts {
+    <script src="http://amazeone-web.amaze.com:8000/javascripts/api/tableau_v8.debug.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        var serverName = "@AppSettings.TableauServerAddress";
+        var ticket;
+        var viz;
+
+        function initializeVizs() {
+            div = $("#viz");
+            url = serverName + "/trusted/" + ticket + "/views/@Model.Workbook/@Model.View";
+            options = {
+                hideTabs: true,
+                hideToolbar: false,
+                width: div.parent().innerWidth() + "px",
+                height: div.parent().innerWidth() + "px"
+            };
+            viz = new tableauSoftware.Viz(div[0], url, options);
+        }
+
+        $(document).ready(function () {
+            var noCache = Date();
+            $.getJSON("/api/TableauTicket/", { "noCache": noCache }, function (data) {
+                $.each(data, function (key, val) {
+                    if (key == 'Ticket') {
+                        ticket = val;
+                        initializeVizs();
+                    }
+                });
+            })
+            .fail(function () {
+                alert("Error accessing Tableau Ticket");
+            });
+        });
+    </script>
+}
+
+

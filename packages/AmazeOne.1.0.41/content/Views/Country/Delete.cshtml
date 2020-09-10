@@ -1,0 +1,108 @@
+﻿@model AmazeOne.Models.GIS.CountryDetailsModel
+@{
+    ViewBag.Title = "Delete Country";
+}
+
+<hgroup class="title">
+    <h1>@ViewBag.Title</h1>
+</hgroup>
+
+<h2>Are you sure you want to delete this?</h2>
+<fieldset>
+    <legend>Country</legend>
+
+@*    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CountryId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CountryId)
+    </div>*@
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.CountryName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CountryName)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Client)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Client)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.AssociatedJiraProjectKey)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.AssociatedJiraProjectKey)
+    </div>
+
+@*    <h3>Unilever</h3>
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.JobAndPhaseForSupportHours)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.JobAndPhaseForSupportHours)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.JobAndPhaseForBrandsProject)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.JobAndPhaseForBrandsProject)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.JobAndPhaseForCareersProject)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.JobAndPhaseForCareersProject)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.JobAndPhaseForMediaProject)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.JobAndPhaseForMediaProject)
+    </div>
+
+    <h3>Lexus</h3>
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.JobAndPhaseForLocalAssetUpload)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.JobAndPhaseForLocalAssetUpload)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.JobAndPhaseForLocalTagging)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.JobAndPhaseForLocalTagging)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.JobAndPhaseForSelfSupportGuidance)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.JobAndPhaseForSelfSupportGuidance)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.JobAndPhaseForTechnicalSupport)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.JobAndPhaseForTechnicalSupport)
+    </div>*@
+</fieldset>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+
+    <p>
+        <input type="submit" value="Delete" /> |
+       @Html.ActionLink("Back to List", "Index", new { cl = Model.ClientId.ToString() })
+    </p>
+}

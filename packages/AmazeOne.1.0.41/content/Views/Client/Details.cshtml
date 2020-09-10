@@ -1,0 +1,36 @@
+﻿@model AmazeOne.Models.GIS.ClientDetailsModel
+@{
+    ViewBag.Title = "Client Details Page";
+}
+
+<hgroup class="title">
+    <h1>@ViewBag.Title</h1>
+</hgroup>
+
+<fieldset>
+    <legend>Client</legend>
+
+    @*<div class="display-label">
+         @Html.DisplayNameFor(model => model.ClientId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ClientId)
+    </div>*@
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ClientName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ClientName)
+    </div>
+</fieldset>
+
+@if (!string.IsNullOrEmpty(Model.Error))
+{
+    <p>
+        @Html.DisplayFor(Model.Error)
+    </p>
+}
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

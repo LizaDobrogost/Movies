@@ -1,0 +1,36 @@
+﻿@model AmazeOne.Models.TableauDashboardViewModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>TableauDashboard</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.DisplayName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DisplayName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Workbook)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Workbook)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.View)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.View)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.TableauDashboardId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

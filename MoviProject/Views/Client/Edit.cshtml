@@ -1,0 +1,92 @@
+﻿@model AmazeOne.Models.GIS.ClientEditModel
+@{
+    ViewBag.Title = "Client Edit Page";
+}
+
+<hgroup class="title">
+    <h1>@ViewBag.Title</h1>
+</hgroup>
+
+@using (Html.BeginForm())
+{
+    
+    @Html.ValidationSummary(true)
+    @Html.AntiForgeryToken()
+
+    <fieldset>
+        <legend>Site</legend>
+        @Html.HiddenFor(model => model.CreatedDate)
+        @Html.HiddenFor(model => model.ClientId)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ClientName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ClientName)
+            @Html.ValidationMessageFor(model => model.ClientName)
+        </div>
+
+        <p>
+            <input type="submit" value="Save Country Details" />
+        </p>
+    </fieldset>
+}
+
+<h2>Client's Phase Types</h2>
+<p>
+    @Html.ActionLink("Create New Phase Type", "Create", "PhaseType", new { cl = Model.ClientId }, new object { })
+</p>
+
+@if (Model.PhaseTypes.Any())
+{
+    <table class="gis">
+        <thead id="siteheader">
+            <tr>
+                <th>
+                    Phase Type Name
+                </th>
+                <th>
+                    Is Support Phase?
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody id="sitedata">
+            @foreach (var pt in Model.PhaseTypes)
+            {
+                <tr>
+                    <td>
+                        <strong>@Html.DisplayFor(modelItem => pt.PhaseTypeDescription)</strong>
+                    </td>
+                    <td>
+                        @((bool)pt.IsSupportPhaseType ? "TRUE" : "FALSE")
+                    </td>
+                    @if (Roles.IsUserInRole("Administrator"))
+                    {
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", "PhaseType", new { id = pt.PhaseTypeId }, new object { }) |
+                            @Html.ActionLink("Delete", "Delete", "PhaseType", new { id = pt.PhaseTypeId }, new object { })
+                        </td>
+                    }
+                    else
+                    {
+                        <td></td>
+                    }
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No Phase Types currently available</p>
+}
+<br />
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

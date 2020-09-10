@@ -1,0 +1,52 @@
+﻿@model IEnumerable<AmazeOne.Models.TableauDashboardViewModel>
+
+@{
+    ViewBag.Title = "Tableau";
+}
+
+<hgroup>
+    <h2>
+        Tableau</h2>
+</hgroup>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DisplayName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Workbook)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.View)
+        </th>
+        @if (Roles.IsUserInRole("Administrator"))
+        {
+            <th>
+            </th>
+        }
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.ActionLink(item.DisplayName, "Dashboard", new { id = item.TableauDashboardId })
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Workbook)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.View)
+            </td>
+            @if (Roles.IsUserInRole("Administrator"))
+            { 
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.TableauDashboardId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.TableauDashboardId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.TableauDashboardId })
+                </td>
+            }
+        </tr>
+    }</table>
